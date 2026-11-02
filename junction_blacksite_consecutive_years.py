@@ -31,11 +31,7 @@ def normalize_street(value: object) -> str:
 
 
 def build_group_key(row: pd.Series) -> tuple[object, ...]:
-    return (
-        row["region"],
-        row["district"],
-        *sorted((row["street_1"], row["street_2"])),
-    )
+    return tuple(sorted((row["street_1"], row["street_2"])))
 
 
 def main() -> None:
